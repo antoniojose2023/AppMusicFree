@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3546875" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/item_dialog.xml" value="0.171875" />
         <entry key="app/src/main/res/layout/item_playlist.xml" value="0.6786632390745502" />
       </map>
     </option>
