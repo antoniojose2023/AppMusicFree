@@ -25,7 +25,7 @@ class AdapterMusic(val context: Context, val list: List<Playlist>): RecyclerView
 
     class ViewHolder(val binding: ItemPlaylistBinding): RecyclerView.ViewHolder(binding.root){
            fun bind(item: Playlist){
-                binding.tvNomeCategoria.text = item.categoria
+                //binding.tvNomeCategoria.text = item.categoria
                 Glide.with(binding.root.context).load(item.url).into(binding.ivCategoria)
            }
     }

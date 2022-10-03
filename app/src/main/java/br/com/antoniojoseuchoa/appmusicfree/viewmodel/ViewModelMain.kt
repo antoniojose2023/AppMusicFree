@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ViewModeMain: ViewModel() {
+class ViewModelMain: ViewModel() {
 
     private var _playlist = MutableLiveData<States>()
     val playlist: LiveData<States> = _playlist
@@ -21,7 +21,7 @@ class ViewModeMain: ViewModel() {
             RepositoryPlaylist.retrofit.getPlaylist().enqueue(object : Callback<Music>{
                 override fun onResponse(call: Call<Music>, response: Response<Music>) {
                        if(response != null){
-                            _playlist.value = States.onSucess(response.body()!!.playlist)
+                            _playlist.value = States.OnSucess(response.body()!!.playlist)
                        }
                 }
 
@@ -34,8 +34,8 @@ class ViewModeMain: ViewModel() {
 
     sealed class States {
         object loader : States()
-        class Erro(mensagem: String) : States()
-        class onSucess(list: List<Playlist>): States()
+        class Erro(var mensagem: String) : States()
+        class OnSucess(var list: List<Playlist>): States()
    }
 }
 
