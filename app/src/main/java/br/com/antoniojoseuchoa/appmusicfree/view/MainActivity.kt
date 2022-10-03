@@ -1,11 +1,13 @@
 package br.com.antoniojoseuchoa.appmusicfree.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.antoniojoseuchoa.appmusicfree.ListMusicActivity
 import br.com.antoniojoseuchoa.appmusicfree.databinding.ActivityMainBinding
 import br.com.antoniojoseuchoa.appmusicfree.databinding.ItemDialogBinding
 import br.com.antoniojoseuchoa.appmusicfree.domain.Playlist
@@ -47,7 +49,10 @@ class MainActivity : AppCompatActivity(), AdapterMusic.OnClickPlaylistListener {
     }
 
     override fun onClickPlaylist(playlist: Playlist) {
-
+            val intent = Intent(this, ListMusicActivity::class.java)
+            intent.putExtra("playlist", playlist)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     fun showDialog(){
