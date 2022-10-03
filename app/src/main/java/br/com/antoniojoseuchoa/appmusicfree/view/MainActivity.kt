@@ -13,7 +13,7 @@ import br.com.antoniojoseuchoa.appmusicfree.databinding.ItemDialogBinding
 import br.com.antoniojoseuchoa.appmusicfree.domain.Playlist
 import br.com.antoniojoseuchoa.appmusicfree.viewmodel.ViewModelMain
 
-class MainActivity : AppCompatActivity(), AdapterMusic.OnClickPlaylistListener {
+class MainActivity : AppCompatActivity(), AdapterPlaylist.OnClickPlaylistListener {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val viewModelMain by viewModels<ViewModelMain>()
 
@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity(), AdapterMusic.OnClickPlaylistListener {
                 }
                 is ViewModelMain.States.OnSucess -> {
                     binding.rvPlaylist.layoutManager = LinearLayoutManager(this)
-                    val adapterMusic = AdapterMusic(this, states.list, this)
-                    binding.rvPlaylist.adapter = adapterMusic
+                    val adapterPlaylist = AdapterPlaylist(this, states.list, this)
+                    binding.rvPlaylist.adapter = adapterPlaylist
                 }
             }
         }
