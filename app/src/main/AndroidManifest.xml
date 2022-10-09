@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AppMusicFree"
         tools:targetApi="31">
         <activity
+            android:name=".DetalheMusicActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListMusicActivity"
             android:exported="false" />
         <activity

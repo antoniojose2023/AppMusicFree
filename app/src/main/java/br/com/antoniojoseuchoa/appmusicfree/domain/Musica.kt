@@ -5,5 +5,5 @@ import java.io.Serializable
 data class Musica (
     val idMusic: String,
     val nome: String,
-    val urlAudio: String
+    val url_audio: String
 ): Serializable

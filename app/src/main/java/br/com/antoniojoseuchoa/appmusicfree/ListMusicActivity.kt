@@ -27,6 +27,9 @@ class ListMusicActivity : AppCompatActivity(), AdapterMusic.OnClickMusicListener
     }
 
     override fun onClickMusic(music: Musica) {
-        
+           val intent = Intent(this, DetalheMusicActivity::class.java)
+           intent.putExtra("music", music)
+           startActivity(intent)
+           overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 }
