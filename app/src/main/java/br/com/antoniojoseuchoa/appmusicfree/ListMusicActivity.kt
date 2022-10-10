@@ -17,6 +17,8 @@ class ListMusicActivity : AppCompatActivity(), AdapterMusic.OnClickMusicListener
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        supportActionBar!!.title = "Lista de músicas"
+
         val intent = getIntent().getSerializableExtra("playlist") as Playlist
         list = intent.musicas as MutableList<Musica>
 

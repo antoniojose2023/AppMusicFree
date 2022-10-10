@@ -13,16 +13,15 @@ class DetalheMusicActivity : AppCompatActivity() {
     private val binding by lazy { ActivityDetalheMusicBinding.inflate(layoutInflater) }
     private lateinit var url_audio: String
     private lateinit var mediaPlayer: MediaPlayer
+    private  var toque = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val intent = intent.getSerializableExtra("music") as Musica
-        url_audio = intent.url_audio
-        val uri_audio = Uri.parse( url_audio )
-        mediaPlayer = MediaPlayer.create(this, uri_audio)
+        supportActionBar!!.title = "Música"
 
+        recoverMusic()
 
         binding.btPlay.setOnClickListener {
                 startAudio()
@@ -33,7 +32,9 @@ class DetalheMusicActivity : AppCompatActivity() {
         }
 
         binding.btStop.setOnClickListener {
+            toque = true
             stopAudio()
+
         }
     }
 
@@ -47,6 +48,19 @@ class DetalheMusicActivity : AppCompatActivity() {
 
     fun stopAudio(){
         mediaPlayer.stop()
+
+        if(toque){
+            recoverMusic()
+        }
+    }
+
+    fun recoverMusic(){
+        val intent = intent.getSerializableExtra("music") as Musica
+        binding.tvNomeMusic.text = intent.nome
+
+        url_audio = intent.url_audio
+        val uri_audio = Uri.parse( url_audio )
+        mediaPlayer = MediaPlayer.create(this, uri_audio)
     }
 
 }
